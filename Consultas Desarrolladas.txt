@@ -1,0 +1,101 @@
+/*
+By: Campo Nayarith & Mancipe Ivan
+*/
+
+/*
+1. Marca y modelo de autos vendidos en el año 2020 con su matricula y margen de ganancia
+
+R1 = σ fecha_venta_reparado != NULL VEHICULOS
+R2 = σ year(fecha_venta_reparado) = 2020 R1
+R3 = R2 ⨝ MODELOS ⨝ MARCAS
+R4 = π matricula_vehiculo, nombre_marca,nombre_modelo, (precio_venta_reparado-precio_pagado_vehiculo)-> Margen_ganancia R3
+R4
+*/
+
+/*
+2. Nombre de los Mecanicos que que han revisado la grua numero 6 en la fecha mas reciente.
+
+R1 = σ tipo_empleado = 'M' EMPLEADOS
+R2 = ρ  dni_mecanico ←  dni_empleado R1
+R3 = R2 ⨝ HISTORIAL_REVISION 
+R4 = σ id_grua = 6 R3
+γ dni_mecanico, nombre_empleado; MAX(fecha_revision)->revision_reciente R4
+*/
+ 
+/*
+3. Total del valor de las piezas recuperadas del vehiculo con matricula en 256.
+
+R1= σ matricula_vehiculo = 256 VEHICULOS
+R2 = ρ matricula_desguesado ← matricula_vehiculo R1
+R3 = R2 ⨝ PIEZAS
+γ matricula_desguesado; SUM(precio_pieza)->total_valor_piezas R3
+*/
+
+/*
+4. Nombre del conductor que mas autos ha traido en la grua 3.
+
+R1 = σ id_grua = 3 GRUA_CONDUCTOR_VEHICULO
+R2 = ρ dni_conductor ← dni_empleado EMPLEADOS
+R3 = R1 ⨝ R2
+R4 = γ dni_conductor; COUNT(matricula_vehiculo)->cantidad R3
+R5 = R3 ⨝ R4
+R6 = γ MAX(cantidad)->maximo R5 
+R7 = R5 ⨯ R6
+R8 = σ cantidad = maximo R7
+π dni_conductor, nombre_empleado R8
+*/
+
+/*
+5. Marca y modelo de vehiculos reparados, que no se han vendido, y en cual plaza estan.
+
+R1= σ tipo_vehiculo = 'R' VEHICULOS
+R2 = σ fecha_venta_reparado = NULL R1
+R3 = R2 ⨝ MODELOS 
+R4 = R3 ⨝ MARCAS
+R5 = R4 ⨝ PLAZAS
+ π nombre_marca, nombre_modelo, matricula_vehiculo,id_plaza R5
+*/
+
+/*
+6. Modelo, marca y placa del vehiculo desguasado del que se obtuvo mayor cantidad piezas.
+
+R1= σ tipo_vehiculo = 'D' VEHICULOS
+R2 = ρ matricula_desguesado ← matricula_vehiculo R1
+R3= R2 ⨝ PIEZAS
+R4 = γ matricula_desguesado, id_modelo; COUNT(id_pieza)->cantidad_piezas R3
+R5 = γ MAX(cantidad_piezas)-> maximo R4
+R6 = R4 ⨯ R5
+R7= σ cantidad_piezas = maximo R6
+R8 = R7 ⨝ MODELOS 
+R9 = R8 ⨝ MARCAS
+π nombre_modelo,nombre_marca,matricula_desguesado,cantidad_piezas R9
+*/
+
+/*
+7. Empleado con mayor cantidad de ganancias totales registradas. (tenga en cuenta que los conductores suman a su sueldo los extras registrados).
+
+R1= σ tipo_empleado = 'C' EMPLEADOS 
+R2 = ρ dni_conductor ← dni_empleado R1
+R3 = R2 ⨝ GRUA_CONDUCTOR_VEHICULO
+R4 = γ dni_conductor; COUNT(matricula_vehiculo)->cantidad_vehiculo R3
+R5 = ρ dni_empleado← dni_conductor R4
+R6 = EMPLEADOS ⟕ R5
+R7 = π dni_empleado,nombre_empleado,sueldo_empleado,coalesce(extra_vehiculo,0)->extra,coalesce(cantidad_vehiculo,0)->cantidad R6
+R8 = π dni_empleado, nombre_empleado, (sueldo_empleado + extra*cantidad)->sueldo R7
+R9 = γ MAX(sueldo)->maximo_sueldo R8
+R10 = R8 ⨯ R9
+R11 = σ sueldo = maximo_sueldo R10
+π dni_empleado, nombre_empleado R11
+*/
+
+/*
+8.cantidad de veces que el conductor 'pedro ruiz' ha manejado cada grua.
+
+R1 = σ nombre_empleado = 'pedro ruiz' EMPLEADOS
+R2 = ρ dni_conductor ← dni_empleado R1
+R3 = R2 ⨝ GRUA_CONDUCTOR_VEHICULO
+R4 = GRUAS ⟕ R3
+γ id_grua; COUNT(dni_conductor)->cantidad R4
+*/
+
+

@@ -1,0 +1,72 @@
+/*
+By: Campo Nayarith & Mancipe Ivan
+*/
+
+INSERT INTO empleados VALUES(1, 10, 'juan perez', 'Cll 7-14, Tunja', '3102586497', 250000, 'M', NULL);
+INSERT INTO empleados VALUES(2, 20, 'camilo rincon', 'Cll 8-15, Tunja', '3112587497', 300000, 'M', NULL);
+INSERT INTO empleados VALUES(3, 30, 'claudia suarez', 'Cll 1-3, Tunja', '3206586497', 150000, 'M', NULL);
+INSERT INTO empleados VALUES(4, 40, 'pedro ruiz', 'Cll 2-13, Tunja', '3212586697', 80000, 'C', 10000);
+INSERT INTO empleados VALUES(5, 50, 'camila mesa', 'Cll 6-14, Tunja', '3132556497', 350000, 'C', 5000);
+INSERT INTO empleados VALUES(6, 60, 'benito perez', 'Cll 8-14, Tunja', '3152586497', 200000, 'C', 6000);
+
+
+INSERT INTO gruas VALUES(1, 2000);
+INSERT INTO gruas VALUES(2, 2002);
+INSERT INTO gruas VALUES(3, 2005);
+INSERT INTO gruas VALUES(4, 2007);
+INSERT INTO gruas VALUES(5, 2009);
+INSERT INTO gruas VALUES(6, 2008);
+
+
+INSERT INTO plazas VALUES(1);
+INSERT INTO plazas VALUES(2);
+INSERT INTO plazas VALUES(3);	
+INSERT INTO plazas VALUES(4);
+INSERT INTO plazas VALUES(5);
+
+INSERT INTO marcas VALUES(1,'Chevrolet');
+INSERT INTO marcas VALUES(2,'Audi');
+INSERT INTO marcas VALUES(3,'Ford');
+INSERT INTO marcas VALUES(4,'Toyota');
+INSERT INTO marcas VALUES(5,'Mercedes benz');
+
+INSERT INTO modelos VALUES(1,2,'A6 sedan');
+INSERT INTO modelos VALUES(2,3,'Ford fiesta');
+INSERT INTO modelos VALUES(3,2,'R8 Spyder');
+INSERT INTO modelos VALUES(4,5,'a200');
+INSERT INTO modelos VALUES(5,4,'Supra');
+INSERT INTO modelos VALUES(6,1,'Aveo');
+
+INSERT INTO vehiculos VALUES(123,1, 2015, 15000000, TO_DATE('03/02/2018','DD/MM/YYYY'),'R', 2, TO_DATE('03/04/2019','DD/MM/YYYY'), NULL, TO_DATE('03/06/2020','DD/MM/YYYY'), 30000000,NULL,NULL);
+INSERT INTO vehiculos VALUES(456,2, 2014, 10000000, TO_DATE('04/03/2019','DD/MM/YYYY'),'R', 1, TO_DATE('15/04/2020','DD/MM/YYYY'), NULL, TO_DATE('03/09/2020','DD/MM/YYYY'), 35000000,NULL,NULL);
+INSERT INTO vehiculos VALUES(789,3, 2012, 12000000, TO_DATE('06/05/2020','DD/MM/YYYY'),'R', 5, TO_DATE('03/06/2020','DD/MM/YYYY'), 4,NULL,NULL,NULL,NULL);
+INSERT INTO vehiculos VALUES(321,4, 2016, 11000000, TO_DATE('23/08/2019','DD/MM/YYYY'),'R', 3, TO_DATE('03/05/2020','DD/MM/YYYY'), 3, NULL,NULL,NULL,NULL);
+INSERT INTO vehiculos VALUES(654,5, 2010, 9000000, TO_DATE('12/09/2020','DD/MM/YYYY'),'D', NULL,NULL, NULL,NULL,NULL, TO_DATE('03/04/2021','DD/MM/YYYY'),344);
+INSERT INTO vehiculos VALUES(987,6, 2012, 7000000, TO_DATE('21/06/2020','DD/MM/YYYY'),'D', NULL, NULL, NULL, NULL, NULL, TO_DATE('03/04/2021','DD/MM/YYYY'),234);
+INSERT INTO vehiculos VALUES(256,1, 2011, 8000000, TO_DATE('24/07/2017','DD/MM/YYYY'),'D', NULL, NULL, NULL,NULL, NULL, TO_DATE('03/04/2020','DD/MM/YYYY'),543);
+
+INSERT INTO piezas VALUES(10,654,'Caja de cambios','esta en buen estado', 200000);
+INSERT INTO piezas VALUES(12,654,'Freno', 'en estadoregular', 50000);
+INSERT INTO piezas VALUES(13,987,'Rines','en apariencia aceptable', 500000);
+INSERT INTO piezas VALUES(14,256,'Embrague', 'con buenas condiciones', 150000 );
+INSERT INTO piezas VALUES(15,256,'motor', 'aguanta 5 años', 900000);
+
+INSERT INTO grua_conductor_vehiculo VALUES(4,123,6,TO_DATE('02/02/2018','DD/MM/YYYY'));
+INSERT INTO grua_conductor_vehiculo VALUES(5,456,4,TO_DATE('22/01/2019','DD/MM/YYYY'));
+INSERT INTO grua_conductor_vehiculo VALUES(6,789,2,TO_DATE('01/03/2020','DD/MM/YYYY'));
+INSERT INTO grua_conductor_vehiculo VALUES(6,321,5,TO_DATE('12/08/2019','DD/MM/YYYY'));
+INSERT INTO grua_conductor_vehiculo VALUES(5,654,1,TO_DATE('10/09/2020','DD/MM/YYYY'));
+INSERT INTO grua_conductor_vehiculo VALUES(4,987,3,TO_DATE('14/06/2020','DD/MM/YYYY'));
+
+INSERT INTO historial_revision VALUES(1,1,TO_DATE('14/06/2021','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(2,2,TO_DATE('14/06/2020','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(1,3,TO_DATE('14/06/2019','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(3,4,TO_DATE('14/06/2021','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(2,5,TO_DATE('14/06/2020','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(3,6,TO_DATE('14/06/2021','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(1,1,TO_DATE('06/04/2000','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(3,2,TO_DATE('06/04/2002','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(2,3,TO_DATE('06/04/2005','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(3,4,TO_DATE('05/03/2007','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(1,5,TO_DATE('05/02/2009','DD/MM/YYYY'));
+INSERT INTO historial_revision VALUES(2,6,TO_DATE('03/01/2008','DD/MM/YYYY'));
